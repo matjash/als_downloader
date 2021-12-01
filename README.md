@@ -23,3 +23,5 @@ for grid:
 Download
 
 https://grindgis.com/data/free-lidar-data-download
+
+https://www.researchgate.net/post/Which-EU-Countries-provide-free-access-to-LIDAR-data-files-in-2017
