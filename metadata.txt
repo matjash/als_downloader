@@ -1,0 +1,48 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=lidar
+qgisMinimumVersion=3.0
+description=Lidar downloader
+version=0.1
+author=Matjaž Mori
+email=matjaz.mori@gmail.com
+
+about=EN: Slovenian lidar data downloader.
+         
+         SI: Vtičnik za prenos lidarskih podatkov.
+
+tracker=https://github.com/matjash/lidar/issues
+repository=https://github.com/matjash/lidar
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+changelog= v0.1: First realease
+
+# Tags are comma separated with spaces allowed
+tags=Slovenia, lidar
+
+homepage=https://github.com/matjash/lidar
+category=Web
+icon=icons/agis_logo.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=Web
+
+# If the plugin can run on QGIS Server.
+server=False
