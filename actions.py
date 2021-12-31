@@ -1,9 +1,11 @@
 import qgis.utils
-import requests
 from qgis.core import (
     QgsApplication, QgsTask, QgsMessageLog)
+from qgis.PyQt.QtWidgets import QPushButton
+import requests
 import os   
 from urllib.parse import urlparse
+import webbrowser
 
 
 iface=qgis.utils.iface
@@ -108,8 +110,9 @@ def download_task(task, grids_list, d_type, dest_folder):
 
     return {'grids_downloaded': grids_downloaded, 'grids_skipped': grids_skipped , 'dest_folder':dest_folder,
             'task': task.description()}
-    
-
+ 
+def open_folder():
+    webbrowser.open(os.path.realpath(dest_folder))
 
 def completed(exception, result=None):
     if exception is None:
@@ -128,6 +131,17 @@ def completed(exception, result=None):
                     grids_skipped =result['grids_skipped'],
                     dest_folder =result['dest_folder']),
                 MESSAGE_CATEGORY, Qgis.Info)
+
+            widget = iface.messageBar().createMessage("Grids downloaded.")
+            button = QPushButton(widget)
+            button.setText("Open Download Folder")
+            button.pressed.connect(open_folder)
+            widget.layout().addWidget(button)
+            iface.messageBar().pushWidget(widget, Qgis.Info, duration=10)
+
+
+
+
     else:
         QgsMessageLog.logMessage("Exception: {}".format(exception),
                                  MESSAGE_CATEGORY, Qgis.Critical)
