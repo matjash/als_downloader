@@ -5,69 +5,73 @@ from PyQt5.QtCore import *
 class DlDialog:
     def __init__(self):
         self.w = QWidget()
-        self.tex = QLineEdit(self.w)
-        self.layout = QGridLayout(self.w)
+        self.layouth = QVBoxLayout(self.w)
+        self.f = QgsFileWidget()
+        self.layout = QGridLayout()
      
     def window(self):
-        bt1 = QPushButton()
-        self.layout.addWidget(bt1, 3, 0)
-        bt1.setText("Show message!")
-        bt1.move(50,50)
+        self.f.setDialogTitle('Select Download Folder')
+        self.f.setStorageMode(1)
+        self.layouth.addWidget(self.f)
+        self.layouth.addLayout( self.layout )
         
-        bt2 = QPushButton(self.w)
-        bt2.setText("Select download folder")
-        bt2.move(250,10)
-        radiobutton = QRadioButton(self.w)
-        radiobutton.move(300,30)
-        radiobutton.setText('ssds')
-        self.layout.addWidget(radiobutton, 0, 0)
-        radiobutton2 = QRadioButton(self.w)
-        radiobutton2.move(300,35)
-        radiobutton2.setText('cdscsds')
+
+        rb1 = QRadioButton()
+        rb1.setText('Download GKOT (laz)')
+        self.layout.addWidget(rb1, 0, 0)
+        
+        rb2 = QRadioButton()
+        rb2.setText('Download OTR (laz)')
+        self.layout.addWidget(rb2, 1, 0)
+        
+        rb3 = QRadioButton()
+        rb3.setText('Download DEM (asc)')
+        self.layout.addWidget(rb3, 2, 0)
         
         self.cb1 = QCheckBox(self.w)
-        self.cb1.setText('ssds')
-        self.cb1.move(30,30)
+        self.cb1.setText('Include Technical Report')
+        self.layout.addWidget(self.cb1, 2, 1)
         
+        """
+        bt1 = QPushButton()
+        self.layout.addWidget(bt1, 100, 20)
+        bt1.setText("Show message!")
+        """
         
-        bt2.clicked.connect(self.on_click)
-        bt1.clicked.connect(self.showdialog)
-        self.w.setWindowTitle("Lidar Downloader")
-        return self.w, self.tex
-
-
-    def file_dialog():
-        dlg = QFileDialog()
-        dlg.setFileMode(dlg.Directory)
-        dlg.show()
-
-        if dlg.exec_():
-            filenames = dlg.selectedFiles()
-            print(filenames)
-        
+        bt2 = QPushButton()
+        self.layouth.addWidget(bt2)
+        bt2.setText("Download")
+     
+        #bt2.clicked.connect(self.on_click)
+        bt2.clicked.connect(self.showdialog)
+        self.w.setWindowTitle("Select download folder and data")
+        return self.w
+       
     def on_click(self):
         if self.cb1.isChecked():
             print('true')
-        print('ssss')
+        a = self.f.filePath()
+        print(a)
             
-    def showdialog():
+    def showdialog(self):
+        def msgbtn(i):
+            print("Button pressed is:",i.text())
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-
         msg.setText("This is a message box")
         msg.setInformativeText("This is additional information")
         msg.setWindowTitle("MessageBox demo")
         msg.setDetailedText("The details are as follows:")
         msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         msg.buttonClicked.connect(msgbtn)
-
+        
         retval = msg.exec_()
         print("value of pressed message box button:", retval)
 
-        def msgbtn(i):
-            print("Button pressed is:",i.text())
+
+        
 
 
 dialog = DlDialog()
-w = dialog.window()[0]
+w = dialog.window()
 w.show()
