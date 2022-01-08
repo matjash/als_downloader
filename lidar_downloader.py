@@ -22,14 +22,17 @@
  ***************************************************************************/
 """
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
+from qgis.core import (QgsVectorLayer, QgsProject, QgsApplication, QgsMessageLog)
 from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtWidgets import QAction
+from qgis.PyQt.QtWidgets import QAction, QMenu
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 # Initialize Qt resources from file resources.py
-from .resources import *
-# Import the code for the dialog
-from .lidar_downloader_dialog import LidarDownloaderDialog
+from .countries import SiLidarDownload
+
 import os.path
+from pathlib import Path
 
 
 class LidarDownloader:
@@ -47,6 +50,7 @@ class LidarDownloader:
         self.iface = iface
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
+
         # initialize locale
         locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
@@ -62,6 +66,8 @@ class LidarDownloader:
         # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'&LiDAR Downloader')
+        self.LD_Menu = QMenu(self.menu)
+
 
         # Check if plugin was started the first time in current QGIS session
         # Must be set in initGui() to survive plugin reloads
@@ -90,7 +96,7 @@ class LidarDownloader:
         callback,
         enabled_flag=True,
         add_to_menu=True,
-        add_to_toolbar=True,
+        add_to_toolbar=False,
         status_tip=None,
         whats_this=None,
         parent=None):
@@ -154,22 +160,26 @@ class LidarDownloader:
                 action)
 
         self.actions.append(action)
-
+        
         return action
 
     def initGui(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
-        icon_path = ':/plugins/lidar_downloader/icon.png'
+        icon_path = str(Path(self.plugin_dir)/'icons/flag_it.png')
         self.add_action(
             icon_path,
-            text=self.tr(u'LiDAR Downloader'),
-            callback=self.run,
+            text=self.tr(u'Italy - Campania'),
+            callback=self.it_campania_lidar_download,
             parent=self.iface.mainWindow())
 
-        # will be set False in run()
-        self.first_start = True
+        """Create the menu entries and toolbar icons inside the QGIS GUI."""
+        icon_path = str(Path(self.plugin_dir)/'icons/flag_si.png')
+        self.add_action(
+            icon_path,
+            text=self.tr(u'Slovenia'),
+            callback=self.si_lidar_download,
+            parent=self.iface.mainWindow())
 
+      
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
@@ -177,24 +187,55 @@ class LidarDownloader:
             self.iface.removePluginWebMenu(
                 self.tr(u'&LiDAR Downloader'),
                 action)
-            self.iface.removeToolBarIcon(action)
+            self.iface.removePluginWebMenu(
+                self.tr(u'Slovenia'),
+                action)
+            self.iface.removePluginWebMenu(
+                self.tr(u'Italy - Campania'),
+                action)
 
 
-    def run(self):
+
+    def it_campania_lidar_download(self):
         """Run method that performs all the real work"""
-
+        """
         # Create the dialog with elements (after translation) and keep reference
         # Only create GUI ONCE in callback, so that it will only load when the plugin is started
         if self.first_start == True:
             self.first_start = False
-            self.dlg = LidarDownloaderDialog()
+            #self.dlg = LidarDownloaderDialog()
 
         # show the dialog
-        self.dlg.show()
+        #self.dlg.show()
         # Run the dialog event loop
-        result = self.dlg.exec_()
+        #result = self.dlg.exec_()
         # See if OK was pressed
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
             pass
+        """
+
+
+
+    def load_fishnet(self): 
+        try:
+            tmp = tempfile.mkdtemp()
+            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'
+            tmp = Path(tmp)/'SI_LIDAR FISHNET D96.gpkg'
+            shutil.copyfile(str(src), str(tmp))
+            src = str(tmp)
+        except:
+            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'  
+        layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
+        vlayer = QgsVectorLayer(layer, "SI_LIDAR FISHNET D96", "ogr")
+        vlayer.setReadOnly()
+        QgsProject.instance().addMapLayer(vlayer)
+        self.clsl.close()
+        self.iface.messageBar().pushMessage(self.tr("Nastavljam Državni kordinatni sistem D96/TM.."), duration=5)  
+
+
+    def si_lidar_download(self):
+        cl = SiLidarDownload
+        self.clsl = cl.window(self)
+        self.clsl.show()
