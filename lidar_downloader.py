@@ -22,7 +22,7 @@
  ***************************************************************************/
 """
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
-from qgis.core import (QgsVectorLayer, QgsProject, QgsApplication, QgsMessageLog)
+
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QMenu
 from PyQt5.QtGui import *
@@ -225,24 +225,10 @@ class LidarDownloader:
     def nl_lidar_download(self):
         layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
 
-    def load_fishnet(self): 
-        try:
-            tmp = tempfile.mkdtemp()
-            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'
-            tmp = Path(tmp)/'SI_LIDAR FISHNET D96.gpkg'
-            shutil.copyfile(str(src), str(tmp))
-            src = str(tmp)
-        except:
-            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'  
-        layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
-        vlayer = QgsVectorLayer(layer, "SI_LIDAR FISHNET D96", "ogr")
-        vlayer.setReadOnly()
-        QgsProject.instance().addMapLayer(vlayer)
-        self.clsl.close()
-        self.iface.messageBar().pushMessage(self.tr("Nastavljam Državni kordinatni sistem D96/TM.."), duration=5)  
 
 
     def si_lidar_download(self):
-        cl = SiLidarDownload
-        self.clsl = cl.window(self)
+        cl = SiLidarDownload(self.iface)
+        self.clsl = cl.window()
         self.clsl.show()
+        
