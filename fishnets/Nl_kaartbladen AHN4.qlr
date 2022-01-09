@@ -1,0 +1,463 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" name="" expanded="1">
+    <customproperties/>
+    <layer-tree-layer source=" crs='EPSG:28992' filter='' url='https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN4/FeatureServer/0'" checked="Qt::Checked" legend_exp="" name="Kaartbladen_AHN4" patch_size="-1,-1" id="Kaartbladen_AHN4_405e2d2e_7dd7_43ba_9816_2b5b78f78342" providerKey="arcgisfeatureserver" legend_split_behavior="0" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer labelsEnabled="1" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" minScale="100000000" simplifyDrawingTol="1" simplifyMaxScale="1" maxScale="0" wkbType="MultiPolygon" autoRefreshTime="0" simplifyLocal="1" simplifyDrawingHints="1" simplifyAlgorithm="0" readOnly="0" geometry="Polygon" type="vector" autoRefreshEnabled="0">
+      <extent>
+        <xmin>10000</xmin>
+        <ymin>356250</ymin>
+        <xmax>225000</xmax>
+        <ymax>618750</ymax>
+      </extent>
+      <id>Kaartbladen_AHN4_405e2d2e_7dd7_43ba_9816_2b5b78f78342</id>
+      <datasource> crs='EPSG:28992' filter='' url='https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN4/FeatureServer/0'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Kaartbladen_AHN4</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Amersfoort / RD New",BASEGEOGCRS["Amersfoort",DATUM["Amersfoort",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4289]],CONVERSION["RD New",METHOD["Oblique Stereographic",ID["EPSG",9809]],PARAMETER["Latitude of natural origin",52.1561605555556,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",5.38763888888889,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999079,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",155000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",463000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Netherlands - onshore, including Waddenzee, Dutch Wadden Islands and 12-mile offshore coastal zone."],BBOX[50.75,3.2,53.7,7.22]],ID["EPSG",28992]]</wkt>
+          <proj4>+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs</proj4>
+          <srsid>2517</srsid>
+          <srid>28992</srid>
+          <authid>EPSG:28992</authid>
+          <description>Amersfoort / RD New</description>
+          <projectionacronym>sterea</projectionacronym>
+          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN4/FeatureServer/0</identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>Kaartbladen_AHN4</title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links>
+          <link name="Source" format="" size="" type="WWW:LINK" description="" mimeType="" url="https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN4/FeatureServer/0"/>
+        </links>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt>PROJCRS["Amersfoort / RD New",BASEGEOGCRS["Amersfoort",DATUM["Amersfoort",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4289]],CONVERSION["RD New",METHOD["Oblique Stereographic",ID["EPSG",9809]],PARAMETER["Latitude of natural origin",52.1561605555556,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",5.38763888888889,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999079,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",155000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",463000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Netherlands - onshore, including Waddenzee, Dutch Wadden Islands and 12-mile offshore coastal zone."],BBOX[50.75,3.2,53.7,7.22]],ID["EPSG",28992]]</wkt>
+            <proj4>+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs</proj4>
+            <srsid>2517</srsid>
+            <srid>28992</srid>
+            <authid>EPSG:28992</authid>
+            <description>Amersfoort / RD New</description>
+            <projectionacronym>sterea</projectionacronym>
+            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxx="225000" minx="10000" miny="356250" crs="EPSG:28992" minz="0" maxz="0" dimensions="2" maxy="618750"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="">arcgisfeatureserver</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <temporal durationUnit="min" fixedDuration="0" accumulate="0" endField="" startExpression="" endExpression="" startField="" enabled="0" mode="0" durationField="">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <renderer-v2 forceraster="0" type="singleSymbol" symbollevels="0" enableorderby="0">
+        <symbols>
+          <symbol name="0" alpha="1" clip_to_extent="1" type="fill" force_rhr="0">
+            <layer pass="0" class="SimpleFill" locked="0" enabled="1">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="0,0,0,0" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="255,170,0,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="1.5" k="outline_width"/>
+              <prop v="Point" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""/>
+                  <Option name="properties"/>
+                  <Option name="type" type="QString" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <labeling type="simple">
+        <settings calloutType="simple">
+          <text-style fontUnderline="0" textOpacity="1" isExpression="0" fontWeight="50" multilineHeight="1" fontItalic="0" textOrientation="horizontal" fontFamily="MS Shell Dlg 2" fontSizeUnit="Point" fontLetterSpacing="0" textColor="255,170,0,255" fontStrikeout="0" fontSize="10" previewBkgrdColor="255,255,255,255" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fieldName="Name" blendMode="0" capitalization="0" fontWordSpacing="0" fontKerning="1" namedStyle="Regular" allowHtml="0" useSubstitutions="0">
+            <text-buffer bufferJoinStyle="128" bufferBlendMode="0" bufferNoFill="1" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferColor="255,255,255,255" bufferOpacity="1"/>
+            <text-mask maskType="0" maskedSymbolLayers="" maskSize="1.5" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskOpacity="1" maskJoinStyle="128" maskSizeUnits="MM" maskEnabled="0"/>
+            <background shapeOffsetY="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeUnit="MM" shapeRadiiY="0" shapeSizeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeFillColor="255,255,255,255" shapeSizeX="0" shapeRotation="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBlendMode="0" shapeSizeY="0" shapeType="0" shapeBorderColor="128,128,128,255" shapeRadiiUnit="MM" shapeJoinStyle="64" shapeDraw="0" shapeOffsetX="0" shapeOffsetUnit="MM" shapeOpacity="1" shapeSVGFile="" shapeRotationType="0" shapeRadiiX="0" shapeBorderWidth="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidthUnit="MM">
+              <symbol name="markerSymbol" alpha="1" clip_to_extent="1" type="marker" force_rhr="0">
+                <layer pass="0" class="SimpleMarker" locked="0" enabled="1">
+                  <prop v="0" k="angle"/>
+                  <prop v="213,180,60,255" k="color"/>
+                  <prop v="1" k="horizontal_anchor_point"/>
+                  <prop v="bevel" k="joinstyle"/>
+                  <prop v="circle" k="name"/>
+                  <prop v="0,0" k="offset"/>
+                  <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+                  <prop v="MM" k="offset_unit"/>
+                  <prop v="35,35,35,255" k="outline_color"/>
+                  <prop v="solid" k="outline_style"/>
+                  <prop v="0" k="outline_width"/>
+                  <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+                  <prop v="MM" k="outline_width_unit"/>
+                  <prop v="diameter" k="scale_method"/>
+                  <prop v="2" k="size"/>
+                  <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+                  <prop v="MM" k="size_unit"/>
+                  <prop v="1" k="vertical_anchor_point"/>
+                  <data_defined_properties>
+                    <Option type="Map">
+                      <Option name="name" type="QString" value=""/>
+                      <Option name="properties"/>
+                      <Option name="type" type="QString" value="collection"/>
+                    </Option>
+                  </data_defined_properties>
+                </layer>
+              </symbol>
+            </background>
+            <shadow shadowUnder="0" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadiusUnit="MM" shadowOffsetUnit="MM" shadowOffsetDist="1" shadowDraw="0" shadowBlendMode="6" shadowOpacity="0.69999999999999996" shadowOffsetAngle="135" shadowRadiusAlphaOnly="0" shadowColor="0,0,0,255" shadowRadius="1.5" shadowScale="100" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+            <dd_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""/>
+                <Option name="properties"/>
+                <Option name="type" type="QString" value="collection"/>
+              </Option>
+            </dd_properties>
+            <substitutions/>
+          </text-style>
+          <text-format reverseDirectionSymbol="0" autoWrapLength="0" decimals="3" placeDirectionSymbol="0" formatNumbers="0" useMaxLineLengthForAutoWrap="1" multilineAlign="3" leftDirectionSymbol="&lt;" plussign="0" wrapChar="" addDirectionSymbol="0" rightDirectionSymbol=">"/>
+          <placement lineAnchorType="0" yOffset="0" polygonPlacementFlags="2" centroidInside="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" overrunDistance="0" placement="0" geometryGeneratorType="PointGeometry" xOffset="0" overrunDistanceUnit="MM" geometryGeneratorEnabled="0" offsetUnits="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" geometryGenerator="" repeatDistanceUnits="MM" offsetType="0" dist="0" centroidWhole="0" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" maxCurvedCharAngleIn="25" repeatDistance="0" rotationAngle="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" placementFlags="10" distUnits="MM" maxCurvedCharAngleOut="-25" lineAnchorPercent="0.5" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" fitInPolygonOnly="0" quadOffset="4" priority="5" layerType="PolygonGeometry"/>
+          <rendering mergeLines="0" minFeatureSize="0" displayAll="1" fontLimitPixelSize="0" upsidedownLabels="0" obstacleFactor="1" obstacleType="1" labelPerPart="0" limitNumLabels="0" scaleVisibility="1" scaleMin="0" maxNumLabels="2000" zIndex="0" fontMinPixelSize="3" scaleMax="400000" drawLabels="1" obstacle="1" fontMaxPixelSize="10000"/>
+          <dd_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </dd_properties>
+          <callout type="simple">
+            <Option type="Map">
+              <Option name="anchorPoint" type="QString" value="pole_of_inaccessibility"/>
+              <Option name="ddProperties" type="Map">
+                <Option name="name" type="QString" value=""/>
+                <Option name="properties"/>
+                <Option name="type" type="QString" value="collection"/>
+              </Option>
+              <Option name="drawToAllParts" type="bool" value="false"/>
+              <Option name="enabled" type="QString" value="0"/>
+              <Option name="labelAnchorPoint" type="QString" value="point_on_exterior"/>
+              <Option name="lineSymbol" type="QString" value="&lt;symbol name=&quot;symbol&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot; type=&quot;line&quot; force_rhr=&quot;0&quot;>&lt;layer pass=&quot;0&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot; enabled=&quot;1&quot;>&lt;prop v=&quot;0&quot; k=&quot;align_dash_pattern&quot;/>&lt;prop v=&quot;square&quot; k=&quot;capstyle&quot;/>&lt;prop v=&quot;5;2&quot; k=&quot;customdash&quot;/>&lt;prop v=&quot;3x:0,0,0,0,0,0&quot; k=&quot;customdash_map_unit_scale&quot;/>&lt;prop v=&quot;MM&quot; k=&quot;customdash_unit&quot;/>&lt;prop v=&quot;0&quot; k=&quot;dash_pattern_offset&quot;/>&lt;prop v=&quot;3x:0,0,0,0,0,0&quot; k=&quot;dash_pattern_offset_map_unit_scale&quot;/>&lt;prop v=&quot;MM&quot; k=&quot;dash_pattern_offset_unit&quot;/>&lt;prop v=&quot;0&quot; k=&quot;draw_inside_polygon&quot;/>&lt;prop v=&quot;bevel&quot; k=&quot;joinstyle&quot;/>&lt;prop v=&quot;60,60,60,255&quot; k=&quot;line_color&quot;/>&lt;prop v=&quot;solid&quot; k=&quot;line_style&quot;/>&lt;prop v=&quot;0.3&quot; k=&quot;line_width&quot;/>&lt;prop v=&quot;MM&quot; k=&quot;line_width_unit&quot;/>&lt;prop v=&quot;0&quot; k=&quot;offset&quot;/>&lt;prop v=&quot;3x:0,0,0,0,0,0&quot; k=&quot;offset_map_unit_scale&quot;/>&lt;prop v=&quot;MM&quot; k=&quot;offset_unit&quot;/>&lt;prop v=&quot;0&quot; k=&quot;ring_filter&quot;/>&lt;prop v=&quot;0&quot; k=&quot;tweak_dash_pattern_on_corners&quot;/>&lt;prop v=&quot;0&quot; k=&quot;use_custom_dash&quot;/>&lt;prop v=&quot;3x:0,0,0,0,0,0&quot; k=&quot;width_map_unit_scale&quot;/>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option name=&quot;name&quot; type=&quot;QString&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option name=&quot;type&quot; type=&quot;QString&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
+              <Option name="minLength" type="double" value="0"/>
+              <Option name="minLengthMapUnitScale" type="QString" value="3x:0,0,0,0,0,0"/>
+              <Option name="minLengthUnit" type="QString" value="MM"/>
+              <Option name="offsetFromAnchor" type="double" value="0"/>
+              <Option name="offsetFromAnchorMapUnitScale" type="QString" value="3x:0,0,0,0,0,0"/>
+              <Option name="offsetFromAnchorUnit" type="QString" value="MM"/>
+              <Option name="offsetFromLabel" type="double" value="0"/>
+              <Option name="offsetFromLabelMapUnitScale" type="QString" value="3x:0,0,0,0,0,0"/>
+              <Option name="offsetFromLabelUnit" type="QString" value="MM"/>
+            </Option>
+          </callout>
+        </settings>
+      </labeling>
+      <customproperties>
+        <property key="dualview/previewExpressions">
+          <value>"Name"</value>
+        </property>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory sizeType="MM" lineSizeType="MM" maxScaleDenominator="1e+08" penColor="#000000" minScaleDenominator="0" backgroundAlpha="255" scaleBasedVisibility="0" spacingUnitScale="3x:0,0,0,0,0,0" minimumSize="0" scaleDependency="Area" spacingUnit="MM" barWidth="5" backgroundColor="#ffffff" rotationOffset="270" penAlpha="255" lineSizeScale="3x:0,0,0,0,0,0" diagramOrientation="Up" spacing="5" enabled="0" width="15" opacity="1" showAxis="1" penWidth="0" direction="0" sizeScale="3x:0,0,0,0,0,0" height="15" labelPlacementMethod="XHeight">
+          <fontProperties style="" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"/>
+          <axisSymbol>
+            <symbol name="" alpha="1" clip_to_extent="1" type="line" force_rhr="0">
+              <layer pass="0" class="SimpleLine" locked="0" enabled="1">
+                <prop v="0" k="align_dash_pattern"/>
+                <prop v="square" k="capstyle"/>
+                <prop v="5;2" k="customdash"/>
+                <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
+                <prop v="MM" k="customdash_unit"/>
+                <prop v="0" k="dash_pattern_offset"/>
+                <prop v="3x:0,0,0,0,0,0" k="dash_pattern_offset_map_unit_scale"/>
+                <prop v="MM" k="dash_pattern_offset_unit"/>
+                <prop v="0" k="draw_inside_polygon"/>
+                <prop v="bevel" k="joinstyle"/>
+                <prop v="35,35,35,255" k="line_color"/>
+                <prop v="solid" k="line_style"/>
+                <prop v="0.26" k="line_width"/>
+                <prop v="MM" k="line_width_unit"/>
+                <prop v="0" k="offset"/>
+                <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+                <prop v="MM" k="offset_unit"/>
+                <prop v="0" k="ring_filter"/>
+                <prop v="0" k="tweak_dash_pattern_on_corners"/>
+                <prop v="0" k="use_custom_dash"/>
+                <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option name="name" type="QString" value=""/>
+                    <Option name="properties"/>
+                    <Option name="type" type="QString" value="collection"/>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+            </symbol>
+          </axisSymbol>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" linePlacementFlags="18" dist="0" placement="1" showAll="1" priority="0" obstacle="0">
+        <properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks/>
+        <checkConfiguration type="Map">
+          <Option name="QgsGeometryGapCheck" type="Map">
+            <Option name="allowedGapsBuffer" type="double" value="0"/>
+            <Option name="allowedGapsEnabled" type="bool" value="false"/>
+            <Option name="allowedGapsLayer" type="QString" value=""/>
+          </Option>
+        </checkConfiguration>
+      </geometryOptions>
+      <legend type="default-vector"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field name="OBJECTID" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="Name" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AHN4_DTM_05m" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AHN4_DTM_5m" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AHN4_DSM_05m" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AHN4_DSM_5m" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AHN4_LAZ" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="Shape__Area" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="Shape__Length" configurationFlags="None">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="OBJECTID" index="0" name=""/>
+        <alias field="Name" index="1" name=""/>
+        <alias field="AHN4_DTM_05m" index="2" name=""/>
+        <alias field="AHN4_DTM_5m" index="3" name=""/>
+        <alias field="AHN4_DSM_05m" index="4" name=""/>
+        <alias field="AHN4_DSM_5m" index="5" name=""/>
+        <alias field="AHN4_LAZ" index="6" name=""/>
+        <alias field="Shape__Area" index="7" name=""/>
+        <alias field="Shape__Length" index="8" name=""/>
+      </aliases>
+      <defaults>
+        <default field="OBJECTID" applyOnUpdate="0" expression=""/>
+        <default field="Name" applyOnUpdate="0" expression=""/>
+        <default field="AHN4_DTM_05m" applyOnUpdate="0" expression=""/>
+        <default field="AHN4_DTM_5m" applyOnUpdate="0" expression=""/>
+        <default field="AHN4_DSM_05m" applyOnUpdate="0" expression=""/>
+        <default field="AHN4_DSM_5m" applyOnUpdate="0" expression=""/>
+        <default field="AHN4_LAZ" applyOnUpdate="0" expression=""/>
+        <default field="Shape__Area" applyOnUpdate="0" expression=""/>
+        <default field="Shape__Length" applyOnUpdate="0" expression=""/>
+      </defaults>
+      <constraints>
+        <constraint field="OBJECTID" unique_strength="1" constraints="3" notnull_strength="1" exp_strength="0"/>
+        <constraint field="Name" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="AHN4_DTM_05m" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="AHN4_DTM_5m" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="AHN4_DSM_05m" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="AHN4_DSM_5m" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="AHN4_LAZ" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="Shape__Area" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="Shape__Length" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="OBJECTID" desc="" exp=""/>
+        <constraint field="Name" desc="" exp=""/>
+        <constraint field="AHN4_DTM_05m" desc="" exp=""/>
+        <constraint field="AHN4_DTM_5m" desc="" exp=""/>
+        <constraint field="AHN4_DSM_05m" desc="" exp=""/>
+        <constraint field="AHN4_DSM_5m" desc="" exp=""/>
+        <constraint field="AHN4_LAZ" desc="" exp=""/>
+        <constraint field="Shape__Area" desc="" exp=""/>
+        <constraint field="Shape__Length" desc="" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortOrder="0" sortExpression="">
+        <columns>
+          <column name="OBJECTID" hidden="0" width="-1" type="field"/>
+          <column name="Name" hidden="0" width="-1" type="field"/>
+          <column name="AHN4_DTM_05m" hidden="0" width="-1" type="field"/>
+          <column name="AHN4_DTM_5m" hidden="0" width="247" type="field"/>
+          <column name="AHN4_DSM_05m" hidden="0" width="231" type="field"/>
+          <column name="AHN4_DSM_5m" hidden="0" width="-1" type="field"/>
+          <column name="AHN4_LAZ" hidden="0" width="274" type="field"/>
+          <column name="Shape__Area" hidden="0" width="116" type="field"/>
+          <column name="Shape__Length" hidden="0" width="-1" type="field"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="AHN4_DSM_05m" editable="1"/>
+        <field name="AHN4_DSM_5m" editable="1"/>
+        <field name="AHN4_DTM_05m" editable="1"/>
+        <field name="AHN4_DTM_5m" editable="1"/>
+        <field name="AHN4_LAZ" editable="1"/>
+        <field name="Name" editable="1"/>
+        <field name="OBJECTID" editable="1"/>
+        <field name="Shape__Area" editable="1"/>
+        <field name="Shape__Length" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field name="AHN4_DSM_05m" labelOnTop="0"/>
+        <field name="AHN4_DSM_5m" labelOnTop="0"/>
+        <field name="AHN4_DTM_05m" labelOnTop="0"/>
+        <field name="AHN4_DTM_5m" labelOnTop="0"/>
+        <field name="AHN4_LAZ" labelOnTop="0"/>
+        <field name="Name" labelOnTop="0"/>
+        <field name="OBJECTID" labelOnTop="0"/>
+        <field name="Shape__Area" labelOnTop="0"/>
+        <field name="Shape__Length" labelOnTop="0"/>
+      </labelOnTop>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"Name"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>

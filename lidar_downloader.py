@@ -171,7 +171,13 @@ class LidarDownloader:
             callback=self.it_campania_lidar_download,
             parent=self.iface.mainWindow())
 
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
+        icon_path = str(Path(self.plugin_dir)/'icons/flag_nl.png')
+        self.add_action(
+            icon_path,
+            text=self.tr(u'Netherlands'),
+            callback=self.nl_lidar_download,
+            parent=self.iface.mainWindow())
+
         icon_path = str(Path(self.plugin_dir)/'icons/flag_si.png')
         self.add_action(
             icon_path,
@@ -216,7 +222,8 @@ class LidarDownloader:
             pass
         """
 
-
+    def nl_lidar_download(self):
+        layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
 
     def load_fishnet(self): 
         try:
