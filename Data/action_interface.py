@@ -5,6 +5,7 @@ import qgis.utils
 import requests
 from urllib.parse import urlparse
 import webbrowser
+import shutil
 from qgis.core import (
     QgsApplication, QgsTask, QgsMessageLog)
 
@@ -18,23 +19,23 @@ class DlDialog:
         self.layout = QGridLayout()
 
         self.iface=qgis.utils.iface
-        #layer_id = '[%@layer_id%]'
-        #layer = QgsProject().instance().mapLayer(layer_id)
-        layer = self.iface.activeLayer()
-
+        layer_id = '[% @layer_id %]'
+        layer = QgsProject().instance().mapLayer(layer_id)
+        #layer = self.iface.activeLayer()
+    
         self.features = layer.selectedFeatures()
         if len(self.features) == 0:
-            feature = '[% $id %]'
+            feature = [% $id %]
             layer.select(feature)
             self.features = layer.selectedFeatures()
-
+        
         self.grids_list = []
         self.areas = set()
         for f in self.features:
-            grid = [f[2], f[22]]
+            grid = [f[1], f[9]]
             self.grids_list.append(grid)
-            self.areas.add(f[22])
-        self.task = QgsTask.fromFunction('Downloading grids', self.download_task, on_finished=completed)
+            self.areas.add(f[9])
+        self.task = QgsTask.fromFunction('Downloading grids', self.download_task, on_finished=self.completed)
      
     def window(self):       
         self.f.setDialogTitle('Select Download Folder')
@@ -45,6 +46,7 @@ class DlDialog:
 
         self.rb1 = QRadioButton('Download GKOT (laz)')
         self.rb1.data = 'gkot'
+        self.rb1.setChecked(True)
         self.layout.addWidget(self.rb1, 0, 0)
         
         self.rb2 = QRadioButton('Download OTR (laz)')
@@ -52,7 +54,7 @@ class DlDialog:
         self.layout.addWidget(self.rb2, 1, 0)
         
         self.rb3 = QRadioButton('Download DEM (asc)')
-        self.rb3.data = 'asc'
+        self.rb3.data = 'dmr1'
         self.layout.addWidget(self.rb3, 2, 0)
         
         self.cb1 = QCheckBox(self.w)
@@ -83,6 +85,27 @@ class DlDialog:
         for rb in rbs:
             if rb.isChecked():
                 self.d_type = rb.data
+
+
+        self.grids_downloaded = 0
+        self.total_size = 0
+        self.size_downloaded = 0
+        self.url_list = []
+        self.total_len = len(self.grids_list)
+        for grid in self.grids_list:
+            url = self.dl_url(self.d_type, str(grid[0]), str(grid[1]))
+            response = requests.head(url)
+            if response.status_code == 200:
+                size = int(requests.head(url).headers['content-length'])
+                self.url_list.append(url)
+            else:
+                text = 'Grid %s not found!' %grid
+                return Exception(text)
+            self.total_size += size  
+            
+      
+
+
         self.window().close()
         self.showdialog()
 
@@ -93,41 +116,42 @@ class DlDialog:
             
     def showdialog(self):
         msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-        msg.setText("This is a message box")
-        msg.setInformativeText("This is additional information")
-        msg.setWindowTitle("MessageBox demo")
-        msg.setDetailedText("The details are as follows:")
-        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-        msg.buttonClicked.connect(self.msgbtn)
-        retval = msg.exec_()
+   
+        if self.dest_folder == '':
+            msg.setIcon(QMessageBox.Warning)
+            msg.setText('No download folder selected!')
+            retval = msg.exec_()
+        else:
+            total, used, free = shutil.disk_usage(str(self.dest_folder))
+            total_mb = round(free/(1024*1024),0)
+            if free < self.total_size:
+                msg.setIcon(QMessageBox.Warning)
+                msg.setText("Not enough space")
+                msg.setInformativeText('''Selected %s grids, %s MB. 
+                Free space: %s MB
+                Selected destination folder:
+                %s
+                ''' %(self.total_len, self.total_size, free, self.dest_folder))   
+                retval = msg.exec_()
+            else:
+                msg.setIcon(QMessageBox.Information)
+                msg.setText('Selected %s grids, %s MB' %(self.total_len,total_mb))       
+                msg.setInformativeText("<a href='%s'>%s</a>" %(self.dest_folder,self.dest_folder))         
+                #ndowTitle("Window title")
+                #msg.setDetailedText("The details are as follows:")
+                msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+                msg.buttonClicked.connect(self.msgbtn)
+                retval = msg.exec_()
   
 
     def download_task(self, task):
-        grids_downloaded = 0
-        total_size = 0
-        size_downloaded = 0
-        url_list = []
-        total_len = len(self.grids_list)
-        for grid in self.grids_list:
-            url = self.dl_url(self.d_type, str(grid[0]), str(grid[1]))
-            response = requests.head(url)
-            if response.status_code == 200:
-                size = int(requests.head(url).headers['content-length'])
-                url_list.append(url)
-            else:
-                text = 'Grid %s not found!' %grid
-                return Exception(text)
-            total_size += size  
-            
-        
-        total_size = round((total_size/1000000), 2)
-        
-        QgsMessageLog.logMessage('Selected %s grids, %s MB' %(str(total_len), str(total_size)),
+
+        size_mb = round(self.total_size/(1024*1024), 2)
+        QgsMessageLog.logMessage('Selected %s grids, %s MB' %(str(self.total_len), str(size_mb)),
                                self.MESSAGE_CATEGORY, Qgis.Info)
 
      
-        for url in url_list:
+        for url in self.url_list:
             response = requests.get(url, stream=True)
             print(url)
             file_name = urlparse(url)
@@ -142,20 +166,20 @@ class DlDialog:
                         f.write(chunk)
                         diff= os.path.getsize(dest_filename)-a
                         a = os.path.getsize(dest_filename)
-                        size_downloaded += diff/(1024*1024)
-                        progress = round(((100*size_downloaded)/total_size),0)
-                        task.setProgress(progress)
+                        self.size_downloaded += diff/(1024*1024)
+                        progressm = round(((100*self.size_downloaded)/size_mb),0)
+                        task.setProgress(progressm)
                         if task.isCanceled():
                             stopped(task)
                             return None
-                grids_downloaded += 1
+                self.grids_downloaded += 1
             else:
                 QgsMessageLog.logMessage('Url for grid %s not valid, skipping.' % file_name,
                     self.MESSAGE_CATEGORY, Qgis.Warning)
             
-        grids_skipped = total_len - grids_downloaded
+        grids_skipped = self.total_len - self.grids_downloaded
 
-        return {'grids_downloaded': grids_downloaded, 'grids_skipped': grids_skipped , 'dest_folder':self.dest_folder,
+        return {'grids_downloaded': self.grids_downloaded, 'grids_skipped': grids_skipped , 'dest_folder':self.dest_folder,
                 'task': task.description()}
 
     
@@ -163,7 +187,7 @@ class DlDialog:
     def msgbtn(self,i):
         if i.text() == 'OK':
             if self.include_report:
-                get_report(self.areas, self.dest_folder)       
+                self.get_report(self.areas, self.dest_folder)       
 
             QgsApplication.taskManager().addTask(self.task)
         elif i.text() == 'Cancel':
@@ -186,7 +210,7 @@ class DlDialog:
     def get_report(self, areas, dest_folder):
         areas = list(areas)
         for a in areas:
-            url = dl_url('report', '', a)
+            url = self.dl_url('report', '', a)
             dest_filename = '%s\\%s_izdelava_izdelkov.pdf' % (dest_folder, a)
             response = requests.get(url, stream=True)
             if response.status_code == 200:
@@ -239,14 +263,6 @@ class DlDialog:
             'Task "{name}" was canceled'.format(
                 name=task.description()),
             MESSAGE_CATEGORY, Qgis.Info)
-
-
-    """
-    grids_list = self.grids_list
-    d_type = self.d_type
-    dest_folder = self.dest_folder
-    """
-
 
 
 
