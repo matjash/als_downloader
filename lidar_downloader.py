@@ -26,7 +26,7 @@ from qgis.PyQt.QtGui import *
 from qgis.PyQt.QtWidgets import QAction, QMenu
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-
+from qgis.core import (QgsLayerDefinition)
 from .countries import *
 
 import os.path
@@ -219,14 +219,28 @@ class LidarDownloader:
             # substitute with your code.
             pass
         """
+    def nl_load_AHN3(self): 
+        self.w.close()
+        self.iface.messageBar().pushMessage(self.tr("Loading fishnet layer"), duration=5) 
+        src = Path(os.path.dirname(__file__))/'fishnets\\Nl_kaartbladen AHN3.qlr'
+        vlayer = QgsLayerDefinition().loadLayerDefinitionLayers(str(src))
+        QgsProject.instance().addMapLayers(vlayer)
+
+    def nl_load_AHN4(self): 
+        self.w.close()
+        self.iface.messageBar().pushMessage(self.tr("Loading fishnet layer"), duration=5) 
+        src = Path(os.path.dirname(__file__))/'fishnets\\Nl_kaartbladen AHN4.qlr'
+        vlayer = QgsLayerDefinition().loadLayerDefinitionLayers(str(src))
+        QgsProject.instance().addMapLayers(vlayer)
 
     def nl_lidar_download(self):
-        layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
+        w = nl_dialog(self)
+        w.show()
 
 
     def si_load_fishnet(self): 
         self.w.close()
-        self.iface.messageBar().pushMessage(self.tr("Loadin fishnet layer"), duration=5) 
+        self.iface.messageBar().pushMessage(self.tr("Loading fishnet layer"), duration=5) 
         src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'
         try:
             tmp = tempfile.mkdtemp()

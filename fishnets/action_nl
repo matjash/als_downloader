@@ -22,7 +22,7 @@ class DlDialog:
         layer_id = '[% @layer_id %]'
         layer = QgsProject().instance().mapLayer(layer_id)
         #layer = self.iface.activeLayer()
-        """   
+        
         self.features = layer.selectedFeatures()
         if len(self.features) == 0:
             feature = [% $id %]
@@ -30,12 +30,12 @@ class DlDialog:
             self.features = layer.selectedFeatures()
         
         self.grids_list = []
-        self.areas = set()
+     
         for f in self.features:
-            grid = [f[1], f[9]]
+            grid = [f[1]]
             self.grids_list.append(grid)
-            self.areas.add(f[9])
-        """
+          
+        
         self.task = QgsTask.fromFunction('Downloading grids', self.download_task, on_finished=self.completed)
      
     def window(self):       

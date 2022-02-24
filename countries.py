@@ -19,7 +19,7 @@ def si_dialog(self):
 
     info_text = QLabel()
     layout.addWidget(info_text)
-    info_text.setText("""will load fishnet layer. 
+    info_text.setText("""Will load fishnet layer.  
     Last three attributes (points/m2, last point/m2, area) were calculated using lasinfo""")
     info_text.setAlignment(Qt.AlignCenter)
 
@@ -35,6 +35,34 @@ def si_dialog(self):
     text.setAlignment(Qt.AlignCenter)
     text.setOpenExternalLinks(True)
     return self.w
+
+
+def nl_dialog(self):  
+    self.w = QWidget()
+    layout = QVBoxLayout(self.w)
+
+    info_text = QLabel()
+    layout.addWidget(info_text)
+    info_text.setText("""Choose series """)
+    info_text.setAlignment(Qt.AlignCenter)
+
+
+    bt = QPushButton()
+    layout.addWidget(bt)
+    bt.setText("Load fishnet layer for AHN1, AHN2 and AHN3")
+    bt.clicked.connect(self.nl_load_AHN3)
+    bt2 = QPushButton()
+    layout.addWidget(bt2)
+    bt2.setText("Load fishnet layer for AHN4")
+    bt2.clicked.connect(self.nl_load_AHN4)
+    self.w.setWindowTitle("Select download folder and data")
+    text = QLabel()
+    layout.addWidget(text)
+    text.setText("<a href='https://www.ahn.nl/'>More Info on Data</a>")
+    text.setAlignment(Qt.AlignCenter)
+    text.setOpenExternalLinks(True)
+    return self.w
+
 
 
 

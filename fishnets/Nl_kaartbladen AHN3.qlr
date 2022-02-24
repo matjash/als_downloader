@@ -1,0 +1,443 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" expanded="1" name="">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer patch_size="-1,-1" checked="Qt::Checked" legend_split_behavior="0" providerKey="arcgisfeatureserver" expanded="1" source=" crs='EPSG:28992' filter='' url='https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN3/FeatureServer/0'" id="Kaartbladen_AHN3_2008495f_d1c5_466c_b829_0484beb29412" legend_exp="" name="Kaartbladen_AHN3">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer autoRefreshTime="0" simplifyLocal="1" simplifyMaxScale="1" legendPlaceholderImage="" geometry="Polygon" simplifyAlgorithm="0" maxScale="0" symbologyReferenceScale="-1" refreshOnNotifyEnabled="0" readOnly="0" simplifyDrawingHints="1" type="vector" labelsEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" simplifyDrawingTol="1" hasScaleBasedVisibilityFlag="0" wkbType="MultiPolygon" refreshOnNotifyMessage="" minScale="100000000">
+      <extent>
+        <xmin>13000</xmin>
+        <ymin>306250</ymin>
+        <xmax>279000</xmax>
+        <ymax>616250.0000000037252903</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>3.24654495545026966</xmin>
+        <ymin>50.72869735832222204</ymin>
+        <xmax>7.25667062797542606</xmax>
+        <ymax>53.53232697468037316</ymax>
+      </wgs84extent>
+      <id>Kaartbladen_AHN3_2008495f_d1c5_466c_b829_0484beb29412</id>
+      <datasource> crs='EPSG:28992' filter='' url='https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN3/FeatureServer/0'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Kaartbladen_AHN3</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Amersfoort / RD New",BASEGEOGCRS["Amersfoort",DATUM["Amersfoort",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4289]],CONVERSION["RD New",METHOD["Oblique Stereographic",ID["EPSG",9809]],PARAMETER["Latitude of natural origin",52.1561605555556,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",5.38763888888889,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999079,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",155000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",463000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Netherlands - onshore, including Waddenzee, Dutch Wadden Islands and 12-mile offshore coastal zone."],BBOX[50.75,3.2,53.7,7.22]],ID["EPSG",28992]]</wkt>
+          <proj4>+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs</proj4>
+          <srsid>2517</srsid>
+          <srid>28992</srid>
+          <authid>EPSG:28992</authid>
+          <description>Amersfoort / RD New</description>
+          <projectionacronym>sterea</projectionacronym>
+          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN3/FeatureServer/0</identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>Kaartbladen_AHN3</title>
+        <abstract></abstract>
+        <links>
+          <link size="" format="" type="WWW:LINK" url="https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Kaartbladen_AHN3/FeatureServer/0" description="" mimeType="" name="Source"/>
+        </links>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt>PROJCRS["Amersfoort / RD New",BASEGEOGCRS["Amersfoort",DATUM["Amersfoort",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4289]],CONVERSION["RD New",METHOD["Oblique Stereographic",ID["EPSG",9809]],PARAMETER["Latitude of natural origin",52.1561605555556,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",5.38763888888889,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999079,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",155000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",463000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Netherlands - onshore, including Waddenzee, Dutch Wadden Islands and 12-mile offshore coastal zone."],BBOX[50.75,3.2,53.7,7.22]],ID["EPSG",28992]]</wkt>
+            <proj4>+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs</proj4>
+            <srsid>2517</srsid>
+            <srid>28992</srid>
+            <authid>EPSG:28992</authid>
+            <description>Amersfoort / RD New</description>
+            <projectionacronym>sterea</projectionacronym>
+            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial minz="0" maxy="616250.0000000037252903" dimensions="2" maxz="0" maxx="279000" crs="EPSG:28992" minx="13000" miny="306250"/>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="">arcgisfeatureserver</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal startField="" accumulate="0" mode="0" endExpression="" startExpression="" durationField="" fixedDuration="0" enabled="0" limitMode="0" durationUnit="min" endField="">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <renderer-v2 enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0" referencescale="-1">
+        <symbols>
+          <symbol clip_to_extent="1" force_rhr="0" type="fill" name="0" alpha="1">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" value="" name="name"/>
+                <Option name="properties"/>
+                <Option type="QString" value="collection" name="type"/>
+              </Option>
+            </data_defined_properties>
+            <layer class="SimpleFill" enabled="1" pass="0" locked="0">
+              <Option type="Map">
+                <Option type="QString" value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale"/>
+                <Option type="QString" value="0,0,0,255" name="color"/>
+                <Option type="QString" value="bevel" name="joinstyle"/>
+                <Option type="QString" value="0,0" name="offset"/>
+                <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
+                <Option type="QString" value="MM" name="offset_unit"/>
+                <Option type="QString" value="255,170,0,255" name="outline_color"/>
+                <Option type="QString" value="solid" name="outline_style"/>
+                <Option type="QString" value="1.5" name="outline_width"/>
+                <Option type="QString" value="Point" name="outline_width_unit"/>
+                <Option type="QString" value="solid" name="style"/>
+              </Option>
+              <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="color" v="0,0,0,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="255,170,0,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="1.5"/>
+              <prop k="outline_width_unit" v="Point"/>
+              <prop k="style" v="solid"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" value="" name="name"/>
+                  <Option name="properties"/>
+                  <Option type="QString" value="collection" name="type"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <Option type="Map">
+          <Option type="StringList" name="dualview/previewExpressions">
+            <Option type="QString" value="&quot;OBJECTID&quot;"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks type="StringList">
+          <Option type="QString" value=""/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend type="default-vector" showLabelLegend="0"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="None" name="OBJECTID">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="CenterX">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="CenterY">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="Shape_Leng">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_05m_i">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_05m_n">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_05m_r">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_5m">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_LAZ_g">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn2_LAZ_u">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="Kaartblad">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn1_5m">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn1_LAZ_g">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="ahn1_LAZ_u">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN3_05m_DSM">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN3_05m_DTM">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN3_5m_DSM">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN3_5m_DTM">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN3_LAZ">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="AHN_Beschikbaar">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias index="0" field="OBJECTID" name="OBJECTID_1"/>
+        <alias index="1" field="CenterX" name=""/>
+        <alias index="2" field="CenterY" name=""/>
+        <alias index="3" field="Shape_Leng" name=""/>
+        <alias index="4" field="ahn2_05m_i" name=""/>
+        <alias index="5" field="ahn2_05m_n" name=""/>
+        <alias index="6" field="ahn2_05m_r" name=""/>
+        <alias index="7" field="ahn2_5m" name=""/>
+        <alias index="8" field="ahn2_LAZ_g" name=""/>
+        <alias index="9" field="ahn2_LAZ_u" name=""/>
+        <alias index="10" field="Kaartblad" name=""/>
+        <alias index="11" field="ahn1_5m" name=""/>
+        <alias index="12" field="ahn1_LAZ_g" name=""/>
+        <alias index="13" field="ahn1_LAZ_u" name=""/>
+        <alias index="14" field="AHN3_05m_DSM" name=""/>
+        <alias index="15" field="AHN3_05m_DTM" name=""/>
+        <alias index="16" field="AHN3_5m_DSM" name=""/>
+        <alias index="17" field="AHN3_5m_DTM" name=""/>
+        <alias index="18" field="AHN3_LAZ" name=""/>
+        <alias index="19" field="AHN_Beschikbaar" name=""/>
+      </aliases>
+      <defaults>
+        <default expression="" applyOnUpdate="0" field="OBJECTID"/>
+        <default expression="" applyOnUpdate="0" field="CenterX"/>
+        <default expression="" applyOnUpdate="0" field="CenterY"/>
+        <default expression="" applyOnUpdate="0" field="Shape_Leng"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_05m_i"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_05m_n"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_05m_r"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_5m"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_LAZ_g"/>
+        <default expression="" applyOnUpdate="0" field="ahn2_LAZ_u"/>
+        <default expression="" applyOnUpdate="0" field="Kaartblad"/>
+        <default expression="" applyOnUpdate="0" field="ahn1_5m"/>
+        <default expression="" applyOnUpdate="0" field="ahn1_LAZ_g"/>
+        <default expression="" applyOnUpdate="0" field="ahn1_LAZ_u"/>
+        <default expression="" applyOnUpdate="0" field="AHN3_05m_DSM"/>
+        <default expression="" applyOnUpdate="0" field="AHN3_05m_DTM"/>
+        <default expression="" applyOnUpdate="0" field="AHN3_5m_DSM"/>
+        <default expression="" applyOnUpdate="0" field="AHN3_5m_DTM"/>
+        <default expression="" applyOnUpdate="0" field="AHN3_LAZ"/>
+        <default expression="" applyOnUpdate="0" field="AHN_Beschikbaar"/>
+      </defaults>
+      <constraints>
+        <constraint exp_strength="0" field="OBJECTID" notnull_strength="1" constraints="3" unique_strength="1"/>
+        <constraint exp_strength="0" field="CenterX" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="CenterY" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="Shape_Leng" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_05m_i" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_05m_n" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_05m_r" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_5m" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_LAZ_g" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn2_LAZ_u" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="Kaartblad" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn1_5m" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn1_LAZ_g" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="ahn1_LAZ_u" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN3_05m_DSM" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN3_05m_DTM" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN3_5m_DSM" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN3_5m_DTM" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN3_LAZ" notnull_strength="0" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" field="AHN_Beschikbaar" notnull_strength="0" constraints="0" unique_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint desc="" field="OBJECTID" exp=""/>
+        <constraint desc="" field="CenterX" exp=""/>
+        <constraint desc="" field="CenterY" exp=""/>
+        <constraint desc="" field="Shape_Leng" exp=""/>
+        <constraint desc="" field="ahn2_05m_i" exp=""/>
+        <constraint desc="" field="ahn2_05m_n" exp=""/>
+        <constraint desc="" field="ahn2_05m_r" exp=""/>
+        <constraint desc="" field="ahn2_5m" exp=""/>
+        <constraint desc="" field="ahn2_LAZ_g" exp=""/>
+        <constraint desc="" field="ahn2_LAZ_u" exp=""/>
+        <constraint desc="" field="Kaartblad" exp=""/>
+        <constraint desc="" field="ahn1_5m" exp=""/>
+        <constraint desc="" field="ahn1_LAZ_g" exp=""/>
+        <constraint desc="" field="ahn1_LAZ_u" exp=""/>
+        <constraint desc="" field="AHN3_05m_DSM" exp=""/>
+        <constraint desc="" field="AHN3_05m_DTM" exp=""/>
+        <constraint desc="" field="AHN3_5m_DSM" exp=""/>
+        <constraint desc="" field="AHN3_5m_DTM" exp=""/>
+        <constraint desc="" field="AHN3_LAZ" exp=""/>
+        <constraint desc="" field="AHN_Beschikbaar" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column type="field" width="-1" name="OBJECTID" hidden="0"/>
+          <column type="field" width="-1" name="CenterX" hidden="0"/>
+          <column type="field" width="-1" name="CenterY" hidden="0"/>
+          <column type="field" width="-1" name="Shape_Leng" hidden="0"/>
+          <column type="field" width="-1" name="ahn2_05m_i" hidden="0"/>
+          <column type="field" width="135" name="ahn2_05m_n" hidden="0"/>
+          <column type="field" width="-1" name="ahn2_05m_r" hidden="0"/>
+          <column type="field" width="-1" name="ahn2_5m" hidden="0"/>
+          <column type="field" width="-1" name="ahn2_LAZ_g" hidden="0"/>
+          <column type="field" width="-1" name="ahn2_LAZ_u" hidden="0"/>
+          <column type="field" width="-1" name="Kaartblad" hidden="0"/>
+          <column type="field" width="151" name="ahn1_5m" hidden="0"/>
+          <column type="field" width="-1" name="ahn1_LAZ_g" hidden="0"/>
+          <column type="field" width="-1" name="ahn1_LAZ_u" hidden="0"/>
+          <column type="field" width="-1" name="AHN3_05m_DSM" hidden="0"/>
+          <column type="field" width="-1" name="AHN3_05m_DTM" hidden="0"/>
+          <column type="field" width="-1" name="AHN3_5m_DSM" hidden="0"/>
+          <column type="field" width="-1" name="AHN3_5m_DTM" hidden="0"/>
+          <column type="field" width="-1" name="AHN3_LAZ" hidden="0"/>
+          <column type="field" width="-1" name="AHN_Beschikbaar" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"OBJECTID"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
