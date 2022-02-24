@@ -36,7 +36,10 @@ class DlDialog:
             self.grids_list.append(grid)
             self.areas.add(f[9])
         self.task = QgsTask.fromFunction('Downloading grids', self.download_task, on_finished=self.completed)
-     
+        self.task_get_size = QgsTask.fromFunction('Calulating download size', self.task_get_size, on_finished=self.size_completed)
+
+
+      
     def window(self):       
         self.f.setDialogTitle('Select Download Folder')
         self.f.setStorageMode(1)
@@ -74,7 +77,35 @@ class DlDialog:
         bt2.clicked.connect(self.on_click)
         self.w.setWindowTitle("Select download folder and data")
         return self.w
-       
+
+
+
+    def task_get_size(self, task):
+        self.grids_downloaded = 0
+        self.total_size = 0
+        self.size_downloaded = 0
+        self.url_list = []
+        self.total_len = len(self.grids_list)
+        for cur, grid in enumerate(self.grids_list): 
+            url = self.dl_url(self.d_type, str(grid[0]), str(grid[1]))
+            response = requests.head(url)
+            if response.status_code == 200:
+                size = int(requests.head(url).headers['content-length'])
+                self.url_list.append(url)
+            else:
+                text = 'Grid %s not found!' %grid
+                return Exception(text)
+            self.total_size += size 
+            progressm = round(((100*cur)/self.total_len),0)
+            task.setProgress(progressm)
+            if task.isCanceled():
+                stopped(task)
+                return None
+        return {'grids_downloaded': self.grids_downloaded, 'total_size': self.total_size , 'url_list':self.url_list, 'total_len':self.total_len,
+                'task': task.description()}
+
+
+
     def on_click(self):
         if self.cb1.isChecked():
             self.include_report = True
@@ -85,45 +116,45 @@ class DlDialog:
         for rb in rbs:
             if rb.isChecked():
                 self.d_type = rb.data
-
-
-        self.grids_downloaded = 0
-        self.total_size = 0
-        self.size_downloaded = 0
-        self.url_list = []
-        self.total_len = len(self.grids_list)
-        for grid in self.grids_list:
-            url = self.dl_url(self.d_type, str(grid[0]), str(grid[1]))
-            response = requests.head(url)
-            if response.status_code == 200:
-                size = int(requests.head(url).headers['content-length'])
-                self.url_list.append(url)
-            else:
-                text = 'Grid %s not found!' %grid
-                return Exception(text)
-            self.total_size += size  
-            
-      
-
-
         self.window().close()
-        self.showdialog()
-
-        a = self.f.filePath()
-        print(a)
+        self.iface.messageBar().pushMessage('Calculating download size...', level=Qgis.Info, duration=5)
+        QgsApplication.taskManager().addTask(self.task_get_size)  
+            
         
+
+    def size_completed(self, exception, result=None):
+        if exception is None:
+            if result is None:
+                QgsMessageLog.logMessage(
+                    'Completed with no exception and no result '\
+                    '(probably manually canceled by the user)',
+                    self.MESSAGE_CATEGORY, Qgis.Warning)
+            else: 
+                QgsMessageLog.logMessage(
+                    'Task {name} completed.'.format(
+                        name=result['task']),
+                    self.MESSAGE_CATEGORY, Qgis.Info)
+                self.total_size = result['total_size']
+                dl = self.showdialog() 
+                dl.show()
+        else:
+            QgsMessageLog.logMessage("Exception: {}".format(exception),
+                                    self.MESSAGE_CATEGORY, Qgis.Critical)
+            raise exception
+
+               
 
             
     def showdialog(self):
+        QgsMessageLog.logMessage(str(self.total_size),self.MESSAGE_CATEGORY, Qgis.Critical)
         msg = QMessageBox()
-   
         if self.dest_folder == '':
             msg.setIcon(QMessageBox.Warning)
             msg.setText('No download folder selected!')
             retval = msg.exec_()
         else:
             total, used, free = shutil.disk_usage(str(self.dest_folder))
-            total_mb = round(free/(1024*1024),0)
+            total_gb = round(free/(1024*1024*1024),3)
             if free < self.total_size:
                 msg.setIcon(QMessageBox.Warning)
                 msg.setText("Not enough space")
@@ -131,13 +162,14 @@ class DlDialog:
                 Free space: %s MB
                 Selected destination folder:
                 %s
-                ''' %(self.total_len, self.total_size, free, self.dest_folder))   
+                ''' %(self.total_len, self.total_size, total_gb, self.dest_folder))   
                 retval = msg.exec_()
             else:
                 msg.setIcon(QMessageBox.Information)
-                msg.setText('Selected %s grids, %s MB' %(self.total_len,total_mb))       
+                msg.setText("""Selected %s grids, %s MB.
+                %s GB avalible.""" %(self.total_len, str(round(self.total_size/(1024*1024*1024),3)), total_gb))       
                 msg.setInformativeText("<a href='%s'>%s</a>" %(self.dest_folder,self.dest_folder))         
-                #ndowTitle("Window title")
+                msg.setWindowTitle("Lidar Downloader")
                 #msg.setDetailedText("The details are as follows:")
                 msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
                 msg.buttonClicked.connect(self.msgbtn)
@@ -145,7 +177,6 @@ class DlDialog:
   
 
     def download_task(self, task):
-
         size_mb = round(self.total_size/(1024*1024), 2)
         QgsMessageLog.logMessage('Selected %s grids, %s MB' %(str(self.total_len), str(size_mb)),
                                self.MESSAGE_CATEGORY, Qgis.Info)
@@ -153,12 +184,9 @@ class DlDialog:
      
         for url in self.url_list:
             response = requests.get(url, stream=True)
-            print(url)
             file_name = urlparse(url)
             file_name = file_name.path.rsplit("/", 1)[-1]
-            print(file_name)
             dest_filename = self.dest_folder + '\\' + file_name
-            print(dest_filename)
             if response.status_code == 200:
                 with open(dest_filename, 'wb') as f:
                     a = 0

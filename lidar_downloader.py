@@ -226,16 +226,16 @@ class LidarDownloader:
 
     def si_load_fishnet(self): 
         self.w.close()
-        self.iface.messageBar().pushMessage("efefesfeds", duration=5) 
+        self.iface.messageBar().pushMessage(self.tr("Loadin fishnet layer"), duration=5) 
+        src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'
         try:
             tmp = tempfile.mkdtemp()
-            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'
-            tmp = Path(tmp)/'SI_LIDAR FISHNET D96.gpkg'
-            shutil.copyfile(str(src), str(tmp))
-            src = str(tmp)
+            dest = Path(tmp)/'SI_LIDAR FISHNET D96.gpkg'
+            shutil.copyfile(str(src), str(dest))
+            src = str(dest)
         except:
-            src = Path(os.path.dirname(__file__))/'fishnets\SI_LIDAR FISHNET D96.gpkg'  
-        layer = str(src) + "|layername=SI_LIDAR FISHNET D96"
+            pass 
+        layer = str(src)
         vlayer = QgsVectorLayer(layer, "SI_LIDAR FISHNET D96", "ogr")
         vlayer.setReadOnly()
         QgsProject.instance().addMapLayer(vlayer)
