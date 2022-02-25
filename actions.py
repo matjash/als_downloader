@@ -96,8 +96,8 @@ def download_task(task, grids_list, d_type, dest_folder):
                     diff= os.path.getsize(dest_filename)-a
                     a = os.path.getsize(dest_filename)
                     size_downloaded += diff/(1024*1024)
-                    progress = round(((100*size_downloaded)/total_size),0)
-                    task.setProgress(progress)
+                    progressm = round(((100*size_downloaded)/total_size),0)
+                    task.setProgress(progressm)
                     if task.isCanceled():
                         stopped(task)
                         return None

@@ -230,6 +230,7 @@ class LidarDownloader:
         self.w.close()
         self.iface.messageBar().pushMessage(self.tr("Loading fishnet layer"), duration=5) 
         src = Path(os.path.dirname(__file__))/'fishnets\\Nl_kaartbladen AHN4.qlr'
+        self.iface.messageBar().pushMessage(str(src), duration=22)
         vlayer = QgsLayerDefinition().loadLayerDefinitionLayers(str(src))
         QgsProject.instance().addMapLayers(vlayer)
 
