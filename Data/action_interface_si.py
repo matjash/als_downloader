@@ -191,7 +191,7 @@ class DlDialog:
                         progressm = round(((100*self.size_downloaded)/size_mb),0)
                         task.setProgress(progressm)
                         if task.isCanceled():
-                            stopped(task)
+                            self.stopped(task)
                             return None
                 self.grids_downloaded += 1
             else:
@@ -239,7 +239,6 @@ class DlDialog:
                     for chunk in response.iter_content(chunk_size = 5000):
                         f.write(chunk)
 
-
  
     def open_folder(self):
         webbrowser.open(os.path.realpath(self.dest_folder))
@@ -248,44 +247,28 @@ class DlDialog:
         if exception is None:
             if result is None:
                 QgsMessageLog.logMessage(
-                    'Completed with no exception and no result '\
-                    '(probably manually canceled by the user)',
-                    MESSAGE_CATEGORY, Qgis.Warning)
-            else:
+                    'Completed with no exception and no result \n(probably manually canceled by the user)',
+                    self.MESSAGE_CATEGORY, Qgis.Warning)
+            else:         
                 QgsMessageLog.logMessage(
-                    'Task {name} completed\n'
-                    'Total {grids_downloaded} grids downloaded to: {dest_folder} ( with {grids_skipped} '
-                    'grids skipped)'.format(
-                        name=result['task'],
-                        grids_downloaded=result['grids_downloaded'],
-                        grids_skipped =result['grids_skipped'],
-                        dest_folder =result['dest_folder']),
-                    MESSAGE_CATEGORY, Qgis.Info)
-
-                widget = iface.messageBar().createMessage("Grids downloaded.")
+                    'Download complete', self.MESSAGE_CATEGORY, Qgis.Info)
+                widget = self.iface.messageBar().createMessage("Download finished", '' )
                 button = QPushButton(widget)
-                button.setText("Open Download Folder")
-                button.pressed.connect(open_folder)
+                button.setText("Open download folder")
+                button.pressed.connect(self.open_folder)
                 widget.layout().addWidget(button)
-                iface.messageBar().pushWidget(widget, Qgis.Info, duration=10)
-
-
-
-
+                self.iface.messageBar().pushWidget(widget, Qgis.Info)
         else:
-            QgsMessageLog.logMessage("Exception: {}".format(exception),
-                                    MESSAGE_CATEGORY, Qgis.Critical)
+            QgsMessageLog.logMessage("Exception: %s" %exception,
+                                    self.MESSAGE_CATEGORY, Qgis.Critical)
             raise exception
-
-
+       
 
     def stopped(self, task):
         QgsMessageLog.logMessage(
             'Task "{name}" was canceled'.format(
                 name=task.description()),
-            MESSAGE_CATEGORY, Qgis.Info)
-
-
+            self.MESSAGE_CATEGORY, Qgis.Info)
 
 dialog = DlDialog()
 w = dialog.window()

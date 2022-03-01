@@ -17,7 +17,7 @@ class DlDialog:
         self.layouth = QVBoxLayout(self.w)
         self.f = QgsFileWidget()
         self.layout = QGridLayout()
-
+  
         self.iface=qgis.utils.iface
         layer_id = '[% @layer_id %]'
         layer = QgsProject().instance().mapLayer(layer_id)
@@ -42,7 +42,6 @@ class DlDialog:
         self.f.setStorageMode(1)
         self.layouth.addWidget(self.f)
         self.layouth.addLayout( self.layout )
-        
 
         self.rb1 = QRadioButton('Download AHN4_LAZ (.laz)')
         self.rb1.data_column = 6
@@ -139,8 +138,6 @@ class DlDialog:
                 msg.setIcon(QMessageBox.Information)
                 msg.setText('Selected %s grids, %s' %(self.total_len,d_size))       
                 msg.setInformativeText('Downloading to:\n %s' %(self.dest_folder))         
-                #ndowTitle("Window title")
-                #msg.setDetailedText("The details are as follows:")
                 msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
                 msg.buttonClicked.connect(self.msgbtn)
                 retval = msg.exec_()
@@ -149,18 +146,15 @@ class DlDialog:
     def download_task(self, task):
         d_size = self.format_bytes(self.total_size)
         size_mb = round(self.total_size/(1024*1024), 2)
-        QgsMessageLog.logMessage('Selected file://%s grids, %s' %(str(self.total_len), d_size),
+        QgsMessageLog.logMessage('Selected %s grids, %s' %(str(self.total_len), d_size),
                                self.MESSAGE_CATEGORY, Qgis.Info)
 
      
         for url in self.url_list:
             response = requests.get(url, stream=True)
-            print(url)
             file_name = urlparse(url)
             file_name = file_name.path.rsplit("/", 1)[-1]
-            print(file_name)
             dest_filename = self.dest_folder + '\\' + file_name
-            print(dest_filename)
             if response.status_code == 200:
                 with open(dest_filename, 'wb') as f:
                     a = 0
@@ -172,7 +166,7 @@ class DlDialog:
                         progressm = round(((100*self.size_downloaded)/size_mb),0)
                         task.setProgress(progressm)
                         if task.isCanceled():
-                            stopped(task)
+                            self.stopped(task)
                             return None
                 self.grids_downloaded += 1
             else:
@@ -192,33 +186,6 @@ class DlDialog:
         elif i.text() == 'Cancel':
             print(i.text())
    
-
-    #downloading stuff
-    def dl_url(self, d_type, grid, area):
-        if d_type == 'gkot':
-            url = 'http://gis.arso.gov.si/lidar/%s/laz/%s/D96TM/TM_%s.laz' % (d_type, area, grid)
-        elif d_type == 'otr':
-            url = 'http://gis.arso.gov.si/lidar/%s/laz/%s/D96TM/TMR_%s.laz' % (d_type, area, grid)
-        elif d_type == 'dmr1':
-            url = 'http://gis.arso.gov.si/lidar/%s/%s/D96TM/TM1_%s.txt' % (d_type, area, grid)
-        elif d_type == 'report':
-            url = 'http://gis.arso.gov.si/related/lidar_porocila/%s_izdelava_izdelkov.pdf' % (area)
-        return url
-            
-
-    def get_report(self, areas, dest_folder):
-        areas = list(areas)
-        for a in areas:
-            url = self.dl_url('report', '', a)
-            dest_filename = '%s\\%s_izdelava_izdelkov.pdf' % (dest_folder, a)
-            response = requests.get(url, stream=True)
-            if response.status_code == 200:
-                with open(dest_filename, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size = 5000):
-                        f.write(chunk)
-
-
- 
     def open_folder(self):
         webbrowser.open(os.path.realpath(self.dest_folder))
 
@@ -226,42 +193,29 @@ class DlDialog:
         if exception is None:
             if result is None:
                 QgsMessageLog.logMessage(
-                    'Completed with no exception and no result '\
-                    '(probably manually canceled by the user)',
-                    MESSAGE_CATEGORY, Qgis.Warning)
-            else:
+                    'Completed with no exception and no result \n(probably manually canceled by the user)',
+                    self.MESSAGE_CATEGORY, Qgis.Warning)
+            else:         
                 QgsMessageLog.logMessage(
-                    'Task {name} completed\n'
-                    'Total {grids_downloaded} grids downloaded to: {dest_folder} ( with {grids_skipped} '
-                    'grids skipped)'.format(
-                        name=result['task'],
-                        grids_downloaded=result['grids_downloaded'],
-                        grids_skipped =result['grids_skipped'],
-                        dest_folder =result['dest_folder']),
-                    MESSAGE_CATEGORY, Qgis.Info)
-
-                widget = iface.messageBar().createMessage("Grids downloaded.")
+                    'Download complete', self.MESSAGE_CATEGORY, Qgis.Info)
+                widget = self.iface.messageBar().createMessage("Download finished", '' )
                 button = QPushButton(widget)
-                button.setText("Open Download Folder")
-                button.pressed.connect(open_folder)
+                button.setText("Open download folder")
+                button.pressed.connect(self.open_folder)
                 widget.layout().addWidget(button)
-                iface.messageBar().pushWidget(widget, Qgis.Info, duration=10)
-
-
-
-
+                self.iface.messageBar().pushWidget(widget, Qgis.Info)
         else:
-            QgsMessageLog.logMessage("Exception: {}".format(exception),
-                                    MESSAGE_CATEGORY, Qgis.Critical)
+            QgsMessageLog.logMessage("Exception: %s" %exception,
+                                    self.MESSAGE_CATEGORY, Qgis.Critical)
             raise exception
-
+       
 
 
     def stopped(self, task):
         QgsMessageLog.logMessage(
             'Task "{name}" was canceled'.format(
                 name=task.description()),
-            MESSAGE_CATEGORY, Qgis.Info)
+            self.MESSAGE_CATEGORY, Qgis.Info)
 
 
 
