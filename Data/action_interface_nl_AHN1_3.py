@@ -44,33 +44,27 @@ class DlDialog:
         self.layouth.addLayout( self.layout )
 
         #AHN3
-        self.rb1 = QRadioButton('Download AHN1_LAZ unfiltered (.laz)')
-        self.rb1.data_column = 13
+        self.rb1 = QRadioButton('Download AHN3_05m_DSM')
+        self.rb1.data_column = 14
         self.rb1.setChecked(True)
         self.layout.addWidget(self.rb1, 0, 0)
         
-        self.rb2 = QRadioButton('Download AHN1_LAZ filtered (.laz)')
-        self.rb2.data_column = 12
+        self.rb2 = QRadioButton('Download AHN3_05m_DTM')
+        self.rb2.data_column = 15
         self.layout.addWidget(self.rb2, 1, 0)
         
-        self.rb3 = QRadioButton('Download AHN1_DTM_5m (.TIF)')
-        self.rb3.data_column = 11
+        self.rb3 = QRadioButton('Download AHN3_5m_DSM')
+        self.rb3.data_column = 16
         self.layout.addWidget(self.rb3, 2, 0)
-        """
-        #AHN2
-        self.rb4 = QRadioButton('Download AHN2_LAZ unfiltered (.laz)')
-        self.rb4.data_column = 4
-        self.rb4.setChecked(True)
-        self.layout.addWidget(self.rb4, 0, 1)
-        
-        self.rb5 = QRadioButton('Download AHN2_LAZ filtered (.laz)')
-        self.rb5.data_column = 5
-        self.layout.addWidget(self.rb5, 1, 1)
-        
-        self.rb6 = QRadioButton('Download AHN2_DTM_5m (.TIF)')
-        self.rb6.data_column = 6
-        self.layout.addWidget(self.rb6, 2, 1)
-        """
+
+        self.rb4 = QRadioButton('Download AHN3_5m_DTM')
+        self.rb4.data_column = 17
+        self.layout.addWidget(self.rb4, 3, 0)
+
+        self.rb5 = QRadioButton('Download AHN3_LAZ')
+        self.rb5.data_column = 18
+        self.layout.addWidget(self.rb5, 4, 0)
+
         bt2 = QPushButton()
         self.layouth.addWidget(bt2)
         bt2.setText("Download")
@@ -87,7 +81,7 @@ class DlDialog:
        
     def on_click(self):
         self.dest_folder = self.f.filePath()
-        rbs = (self.rb1, self.rb2, self.rb3, self.rb4, self.rb5, self.rb6)
+        rbs = (self.rb1, self.rb2, self.rb3, self.rb4, self.rb5)
         for rb in rbs:
             if rb.isChecked():
                 self.data_column = rb.data_column
