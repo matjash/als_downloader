@@ -4,13 +4,13 @@
 
 [general]
 name=lidar
-qgisMinimumVersion=3.0
+qgisMinimumVersion=3.10
 description=Lidar downloader
 version=0.1
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
-about=EN: Slovenian lidar data downloader.
+about=EN: ALS data downlader
          
          SI: Vtičnik za prenos lidarskih podatkov.
 
@@ -25,7 +25,7 @@ hasProcessingProvider=no
 changelog= v0.1: First build
 
 # Tags are comma separated with spaces allowed
-tags=Slovenia, lidar
+tags=ALS data, Netherlands, Slovenia, lidar
 
 homepage=https://github.com/matjash/lidar
 category=Web

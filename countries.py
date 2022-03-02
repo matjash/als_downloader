@@ -49,7 +49,7 @@ def nl_dialog(self):
 
     bt = QPushButton()
     layout.addWidget(bt)
-    bt.setText("Load fishnet layer for AHN1, AHN2 and AHN3")
+    bt.setText("Load fishnet layer for AHN3")
     bt.clicked.connect(self.nl_load_AHN3)
     bt2 = QPushButton()
     layout.addWidget(bt2)
