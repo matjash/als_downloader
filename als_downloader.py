@@ -142,16 +142,8 @@ class LidarDownloader:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginWebMenu(
-                self.tr(u'&LiDAR Downloader'),
+                self.tr(u'&ALS Downloader'),
                 action)
-            self.iface.removePluginWebMenu(
-                self.tr(u'Slovenia'),
-                action)
-            """
-            self.iface.removePluginWebMenu(
-                self.tr(u'Italy - Campania'),
-                action)
-            """
 
 
     def it_campania_lidar_download(self):
