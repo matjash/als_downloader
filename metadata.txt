@@ -13,8 +13,8 @@ email=matjaz.mori@gmail.com
 about=Download ALS (LiDAR) data. Plugin can be found under Web menu. It provides fishnet and Action for downloading selected grids of following Countries:
     Slovenia
     The Netherlands
-tracker=https://github.com/matjash/lidar/issues
-repository=https://github.com/matjash/lidar
+tracker=https://github.com/matjash/als_downloader/issues
+repository=https://github.com/matjash/als_downloader
 # End of mandatory metadata
 
 # Recommended items:
@@ -26,7 +26,7 @@ changelog=
 # Tags are comma separated with spaces allowed
 tags=ALS data, Netherlands, Slovenia, lidar
 
-homepage=https://github.com/matjash/lidar
+homepage=https://github.com/matjash/als_downloader
 category=Web
 icon=icons/icon_ld.png
 # experimental flag

@@ -26,11 +26,5 @@
 
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name
-    """Load LidarDownloader class from file LidarDownloader.
-
-    :param iface: A QGIS interface instance.
-    :type iface: QgsInterface
-    """
-    #
-    from .lidar_downloader import LidarDownloader
+    from .als_downloader import LidarDownloader
     return LidarDownloader(iface)
