@@ -3,17 +3,16 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=lidar
+name=ALS Downloader
 qgisMinimumVersion=3.10
-description=Lidar downloader
-version=0.1
+description=ALS data downloader for Slovenia and the Netherlands.
+version=1.0
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
-about=EN: ALS data downlader
-         
-         SI: Vtičnik za prenos lidarskih podatkov.
-
+about=Download ALS (LiDAR) data. Plugin can be found under Web menu. It provides fishnet and Action for downloading selected grids of following Countries:
+    Slovenia
+    The Netherlands
 tracker=https://github.com/matjash/lidar/issues
 repository=https://github.com/matjash/lidar
 # End of mandatory metadata
@@ -22,14 +21,14 @@ repository=https://github.com/matjash/lidar
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v0.1: First build
+changelog=
 
 # Tags are comma separated with spaces allowed
 tags=ALS data, Netherlands, Slovenia, lidar
 
 homepage=https://github.com/matjash/lidar
 category=Web
-icon=icons/agis_logo.png
+icon=icons/icon_ld.png
 # experimental flag
 experimental=False
 
